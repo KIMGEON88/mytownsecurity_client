@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 const { kakao } = window;
+import { gql } from '@apollo/client';
 
 function Map() {
   useEffect(() => {
@@ -16,6 +17,21 @@ function Map() {
         let map = new kakao.maps.Map(el, {
           center: new kakao.maps.LatLng(37.5137912, 127.0293161), // 추후 사용자가 입력한 주소의 좌표 변수로 대체 예정
         });
+
+        //         client
+        //   .query({
+        //     query: gql`
+        //       query {
+        //              policeStation {
+        //               stationName
+        //               X
+        //               Y
+        //               stationAddress
+        //             }
+        //        }
+        //     `
+        //   })
+        //   .then(result => console.log(result));
 
         let policeStation = [
           // 서버 완성되면 데이터 불러오는 코드로 대체 예정!
